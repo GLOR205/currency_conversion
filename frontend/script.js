@@ -41,3 +41,44 @@ document.addEventListener("DOMContentLoaded", async () => {
     async function convertCurrency() {
         const amount = parseFloat(amountInput.value);
         if (isNaN(amount) || amount <= 0) {
+            resultDiv.textContent = "Please enter a valid amount.";
+            return;
+        }
+
+        try {
+            const res = await fetch(`${API_BASE_URL}/api/convert`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    amount,
+                    from: fromCurrency.value,
+                    to: toCurrency.value
+                })
+            });
+
+            if (!res.ok) throw new Error(`Conversion failed: ${res.status}`);
+
+            const data = await res.json();
+            resultDiv.textContent = `${amount} ${fromCurrency.value} = ${data.result} ${toCurrency.value}`;
+        } catch (err) {
+            console.error(err);
+            resultDiv.textContent = "❌ Conversion failed. Please try again.";
+        }
+    }
+
+    // Event listeners
+    amountInput.addEventListener("input", () => {
+        if (amountInput.value.trim() !== "") convertCurrency();
+    });
+
+    fromCurrency.addEventListener("change", convertCurrency);
+    toCurrency.addEventListener("change", convertCurrency);
+
+    // Swap currencies
+    swapBtn.addEventListener("click", () => {
+        const temp = fromCurrency.value;
+        fromCurrency.value = toCurrency.value;
+        toCurrency.value = temp;
+        convertCurrency();
+    });
+});
