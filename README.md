@@ -99,8 +99,10 @@ bash
 Copy
 Edit
 npm start
-# or for development
+or for development
 npm run dev
+
+
 🌐 Frontend
 Go to the frontend folder:
 
@@ -138,11 +140,9 @@ Edit
 }
 📄 License
 MIT License
-<<<<<<< HEAD
+ HEAD
 Built with ❤️ using ExchangeRate-API, Express.js, and pure JavaScript.
-=======
+
 
 Thanks for checking out my project! 😊
 If you have feedback or suggestions, feel free to reach out.
->>>>>>> 93f619a (with the demos)
-
