@@ -1,28 +1,27 @@
-const express = require("express");
-const cors = require("cors");
-const axios = require("axios");
-const path = require("path"); // ADD THIS LINE - was missing
 require("dotenv").config();
+const express = require("express");
+const axios = require("axios");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.EXCHANGE_API_KEY;
 
-// Middleware
+if (!API_KEY) {
+  console.error("❌ Missing EXCHANGE_API_KEY in environment variables");
+  process.exit(1);
+}
+
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
 
-// Health check endpoint
-app.get("/health", (req, res) => {
-  res.json({ status: "OK", timestamp: new Date().toISOString() });
+// ✅ Health check
+app.get("/", (req, res) => {
+  res.json({ status: "Backend is running 🚀" });
 });
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error("Server error:", err);
-  res.status(500).json({ success: false, error: "Internal server error" });
-});
+// ✅ Get list of
+
 
 // Get supported currencies
 app.get("/api/currencies", async (req, res) => {
