@@ -138,11 +138,13 @@ Edit
 "devDependencies": {
   "nodemon": "^3.1.10"
 }
+
+
 📄 License
 MIT License
- HEAD
-Built with ❤️ using ExchangeRate-API, Express.js, and pure JavaScript.
+ 
 
+Built with ❤️ using ExchangeRate-API, Express.js, and pure JavaScript.
 
 Thanks for checking out my project! 😊
 If you have feedback or suggestions, feel free to reach out.
