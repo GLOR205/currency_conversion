@@ -15,18 +15,9 @@ Backend (Render):
 🎥 Walkthrough Video
 If you want to see how it works, here's a short demo video I made:
 https://youtu.be/nQT-U7X6cBQ
-<<<<<<< HEAD
-Your local version of the README
-=======
-Version from GitHub
->>>>>>> 93f619a...
 
-🗂️ Project Structure
-bash
-=======
+
 📁 Project Structure
-pgsql
->>>>>>> 93f619a (with the demos)
 Copy
 Edit
 currency-converter/
