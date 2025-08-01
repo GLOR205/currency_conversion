@@ -1,76 +1,38 @@
-// ✅ Change this to your Render backend URL
-const API_BASE_URL = "https://currency-conversion-6686.onrender.com";
+document.addEventListener("DOMContentLoaded", () => {
+    const API_BASE_URL = "https://currency-conversion-6686.onrender.com"; // Render backend URL
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const fromCurrency = document.getElementById("from-currency");
-    const toCurrency = document.getElementById("to-currency");
-    const amountInput = document.getElementById("amount");
-    const resultDiv = document.getElementById("result");
+    const fromCurrency = document.getElementById("fromCurrency");
+    const toCurrency = document.getElementById("toCurrency");
+    const amount = document.getElementById("amount");
+    const result = document.getElementById("result");
     const swapBtn = document.getElementById("swap");
 
-    // Load supported currencies
-    try {
-        const res = await fetch(`${API_BASE_URL}/api/currencies`);
-        if (!res.ok) throw new Error(`Failed to load currencies: ${res.status}`);
-        
-        const currencies = await res.json();
+    // Fetch currencies
+    fetch(`${API_BASE_URL}/api/currencies`)
+        .then(res => res.json())
+        .then(data => {
+            // Clear "Loading..." text
+            fromCurrency.innerHTML = "";
+            toCurrency.innerHTML = "";
 
-        // Fill both dropdowns
-        for (let code in currencies) {
-            const option1 = document.createElement("option");
-            option1.value = code;
-            option1.textContent = `${code} - ${currencies[code]}`;
-            fromCurrency.appendChild(option1);
+            Object.keys(data).forEach(code => {
+                const option1 = document.createElement("option");
+                option1.value = code;
+                option1.textContent = `${code} - ${data[code]}`;
 
-            const option2 = document.createElement("option");
-            option2.value = code;
-            option2.textContent = `${code} - ${currencies[code]}`;
-            toCurrency.appendChild(option2);
-        }
+                const option2 = option1.cloneNode(true);
 
-        // Default values
-        fromCurrency.value = "USD";
-        toCurrency.value = "EUR";
-
-    } catch (err) {
-        console.error(err);
-        resultDiv.textContent = "❌ Failed to load currencies. Please try again later.";
-    }
-
-    // Convert function
-    async function convertCurrency() {
-        const amount = parseFloat(amountInput.value);
-        if (isNaN(amount) || amount <= 0) {
-            resultDiv.textContent = "Please enter a valid amount.";
-            return;
-        }
-
-        try {
-            const res = await fetch(`${API_BASE_URL}/api/convert`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    amount,
-                    from: fromCurrency.value,
-                    to: toCurrency.value
-                })
+                fromCurrency.appendChild(option1);
+                toCurrency.appendChild(option2);
             });
 
-            if (!res.ok) throw new Error(`Conversion failed: ${res.status}`);
+            // Default selection
+            fromCurrency.value = "USD";
+            toCurrency.value = "EUR";
+        });
 
-            const data = await res.json();
-            resultDiv.textContent = `${amount} ${fromCurrency.value} = ${data.result} ${toCurrency.value}`;
-        } catch (err) {
-            console.error(err);
-            resultDiv.textContent = "❌ Conversion failed. Please try again.";
-        }
-    }
-
-    // Event listeners
-    amountInput.addEventListener("input", () => {
-        if (amountInput.value.trim() !== "") convertCurrency();
-    });
-
+    // Convert currency on changes
+    amount.addEventListener("input", convertCurrency);
     fromCurrency.addEventListener("change", convertCurrency);
     toCurrency.addEventListener("change", convertCurrency);
 
@@ -81,4 +43,25 @@ document.addEventListener("DOMContentLoaded", async () => {
         toCurrency.value = temp;
         convertCurrency();
     });
+
+    function convertCurrency() {
+        const amt = parseFloat(amount.value);
+        if (isNaN(amt) || amt <= 0) return;
+
+        fetch(`${API_BASE_URL}/api/convert`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                amount: amt,
+                from: fromCurrency.value,
+                to: toCurrency.value
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.result) {
+                    result.textContent = `${amt} ${fromCurrency.value} = ${data.result} ${toCurrency.value}`;
+                }
+            });
+    }
 });
