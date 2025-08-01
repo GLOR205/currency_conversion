@@ -1,15 +1,18 @@
-:
+💱 Currency Conversion
 
-🌐 Currency Conversion — Live Deployment
-A full-stack currency converter application that provides real-time exchange rates and currency conversion functionality using the ExchangeRate-API.
 
-🔗 Live Links
-Frontend (Vercel): https://y-exj2fyas7-gloria-muhorakeyes-projects.vercel.app/
+A full-stack currency converter that provides real-time exchange rates and currency conversion functionality using the ExchangeRate-API.
 
-Backend (Render): https://currency-conversion-6686.onrender.com
-Demo Live video
-Youtube Link: 
-📁 Project Structure
+🌐 Live Demo
+
+Frontend (Vercel)
+🔗 https://y-exj2fyas7-gloria-muhorakeyes-projects.vercel.app/
+
+Backend (Render)
+🔗 https://currency-conversion-6686.onrender.com
+
+🗂️ Project Structure
+
 bash
 Copy
 Edit
@@ -17,46 +20,55 @@ currency-converter/
 ├── backend/
 │   ├── server.js          # Express server with API endpoints
 │   ├── package.json       # Backend dependencies and scripts
-│   ├── .env               # Environment variables (API keys, etc.)
-│   └── Dockerfile         # Docker configuration (optional)
+│   ├── .env               # Environment variables
+│   └── Dockerfile         # Docker config (optional)
 ├── frontend/
 │   ├── index.html         # Main HTML file
-│   ├── script.js          # Frontend JavaScript logic
-│   ├── style.css          # Styling and responsive design
-│   └── vercel.json        # Vercel deployment configuration
-└── README.md              # Project documentation
+│   ├── script.js          # JavaScript logic
+│   ├── style.css          # Styles and responsiveness
+│   └── vercel.json        # Vercel deployment config
+└── README.md              # Documentation
+
+
 🚀 Features
-🌍 Real-time currency exchange rates from ExchangeRate-API
+🌍 Real-time exchange rates from ExchangeRate-API
 
 💱 Convert between 100+ currencies
 
 🔄 Currency swap functionality
 
-📱 Fully responsive (mobile-first)
+⚡ Debounced input for smooth conversion
 
-⚡ Debounced input for smooth UX
+📱 Mobile-responsive design
 
-📡 Offline/online status detection
+📡 Detects online/offline status
 
-🛠 Tech Stack
+
+
+🛠️ Tech Stack
 Backend
-Node.js & Express.js
+Node.js & Express.js – API server
 
-Axios
+Axios – HTTP client
 
-dotenv
+CORS – Cross-origin support
 
-CORS
+dotenv – Environment configuration
+
+
 
 Frontend
-HTML5, CSS3, JavaScript (Vanilla)
+HTML5 / CSS3 / JavaScript (Vanilla)
 
-Responsive Design (no framework)
+Responsive and mobile-first layout
 
-🔧 API Endpoints
+
+
+📡 API Endpoints
 Endpoint	Method	Description
-/api/currencies	GET	Get supported currency list
-/api/convert	POST	Convert currency amounts
+/api/currencies	GET	Get list of supported currencies
+/api/convert	POST	Convert currency amount
+
 
 Example Payload:
 
@@ -68,27 +80,86 @@ Edit
   "from": "USD",
   "to": "EUR"
 }
-🚀 Deployment Instructions
-✅ Backend (Render)
-URL: https://currency-conversion-6686.onrender.com
 
-Setup:
 
-Build command: npm install
+🧪 Getting Started Locally
+✅ Backend Setup
+Clone the repo and install dependencies:
 
-Start command: npm start
+bash
+Copy
+Edit
+git clone <repository-url>
+cd currency-converter/backend
+npm install
+Create a .env file:
 
-Environment:
+ini
+Copy
+Edit
+PORT=3000
+EXCHANGE_API_KEY=your_exchangerate_api_key
+NODE_ENV=development
+Start the server:
 
+bash
+Copy
+Edit
+npm start        # or npm run dev
+✅ Frontend Setup
+Navigate to the frontend folder:
+
+bash
+Copy
+Edit
+cd ../frontend
+Open index.html in your browser, or serve using a local dev server.
+
+🚀 Deployment Guide
+🔧 Backend (Render)
+Connect your GitHub repo to Render
+
+Add environment variables:
+
+ini
+Copy
+Edit
 EXCHANGE_API_KEY=your_key
-
 NODE_ENV=production
+Set:
 
-✅ Frontend (Vercel)
-URL: https://y-exj2fyas7-gloria-muhorakeyes-projects.vercel.app/
+Build Command: npm install
 
-Steps:
+Start Command: npm start
 
-Update API_BASE_URL in script.js to your Render backend URL
+🎯 Frontend (Vercel)
+Update API_BASE_URL in script.js to point to your Render backend.
 
-Run vercel from the /frontend directory
+Deploy with Vercel CLI:
+
+bash
+Copy
+Edit
+cd frontend
+vercel
+
+
+📦 Dependencies
+
+
+json
+Copy
+Edit
+"dependencies": {
+  "axios": "^1.7.7",
+  "cors": "^2.8.5",
+  "dotenv": "^16.4.5",
+  "express": "^4.21.2"
+},
+"devDependencies": {
+  "nodemon": "^3.1.10"
+}
+📄 License
+MIT License
+Built with ❤️ using ExchangeRate-API, Express.js, and pure JavaScript.
+
