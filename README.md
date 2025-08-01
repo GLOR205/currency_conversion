@@ -1,71 +1,80 @@
-:
+.
 
 💱 Currency Conversion
-A full-stack currency converter that provides real-time exchange rates and currency conversion functionality using the ExchangeRate-API.
+Hi! I’m Gloria, and this is my full-stack currency converter app. It lets you convert between over 100 currencies in real time using the ExchangeRate-API. I built this project from scratch to learn and demonstrate how frontend and backend services can work together.
 
 🌐 Live Demo
-Frontend (Vercel)
+Here’s where you can check it out live:
+
+Frontend (Vercel):
 🔗 https://y-exj2fyas7-gloria-muhorakeyes-projects.vercel.app/
 
-Backend (Render)
+Backend (Render):
 🔗 https://currency-conversion-6686.onrender.com
 
-🎥 Demo Video
+🎥 Walkthrough Video
+If you want to see how it works, here's a short demo video I made:
 https://youtu.be/nQT-U7X6cBQ
 <<<<<<< HEAD
+Your local version of the README
 =======
+Version from GitHub
+>>>>>>> 93f619a...
 
->>>>
 🗂️ Project Structure
 bash
+=======
+📁 Project Structure
+pgsql
+>>>>>>> 93f619a (with the demos)
 Copy
 Edit
 currency-converter/
 ├── backend/
 │   ├── server.js          # Express server with API endpoints
-│   ├── package.json       # Backend dependencies and scripts
+│   ├── package.json       # Dependencies and scripts
 │   ├── .env               # Environment variables
 │   └── Dockerfile         # Docker config (optional)
 ├── frontend/
-│   ├── index.html         # Main HTML file
-│   ├── script.js          # JavaScript logic
-│   ├── style.css          # Styles and responsiveness
+│   ├── index.html         # HTML structure
+│   ├── script.js          # JS logic for currency conversion
+│   ├── style.css          # Styling and responsiveness
 │   └── vercel.json        # Vercel deployment config
-└── README.md              # Documentation
-🚀 Features
-🌍 Real-time exchange rates from ExchangeRate-API
+└── README.md              # Project documentation
+✨ Features
+🌍 Real-time exchange rates
 
 💱 Convert between 100+ currencies
 
-🔄 Currency swap functionality
+🔄 One-click currency swap
 
-⚡ Debounced input for smooth conversion
+⚡ Debounced input (auto-converts smoothly)
 
-📱 Mobile-responsive design
+📱 Fully responsive (works on mobile and desktop)
 
-📡 Offline/online status detection
+📡 Offline/online detection so users are aware of connectivity
 
-🛠️ Tech Stack
+🧰 Tech Stack
 Backend
-Node.js & Express.js – API server
+Node.js + Express
 
-Axios – HTTP client
+Axios for making API requests
 
-CORS – Cross-origin support
+dotenv for handling environment variables
 
-dotenv – Environment configuration
+CORS for cross-origin support
 
 Frontend
-HTML5 / CSS3 / JavaScript (Vanilla)
+HTML, CSS, JavaScript (vanilla)
 
-Responsive and mobile-first layout
+Responsive design (no frameworks)
 
-📡 API Endpoints
+🔌 API Endpoints
 Endpoint	Method	Description
-/api/currencies	GET	Get list of supported currencies
-/api/convert	POST	Convert currency amount
+/api/currencies	GET	List all supported currencies
+/api/convert	POST	Convert currency based on amount
 
-Example Payload:
+Here’s an example of the JSON payload for conversion:
 
 json
 Copy
@@ -75,9 +84,9 @@ Edit
   "from": "USD",
   "to": "EUR"
 }
-🧪 Getting Started Locally
-✅ Backend Setup
-Clone the repo and install dependencies:
+🚀 How to Run It Locally
+🖥 Backend
+Clone the project and install dependencies:
 
 bash
 Copy
@@ -85,56 +94,44 @@ Edit
 git clone <repository-url>
 cd currency-converter/backend
 npm install
-Create a .env file:
+Create a .env file in the backend folder and add:
 
 ini
 Copy
 Edit
 PORT=3000
-EXCHANGE_API_KEY=your_exchangerate_api_key
+EXCHANGE_API_KEY=your_api_key_here
 NODE_ENV=development
 Start the server:
 
 bash
 Copy
 Edit
-npm start        # or npm run dev
-✅ Frontend Setup
-Navigate to the frontend folder:
+npm start
+# or for development
+npm run dev
+🌐 Frontend
+Go to the frontend folder:
 
 bash
 Copy
 Edit
 cd ../frontend
-Open index.html in your browser, or serve using a local dev server.
+You can just open index.html in your browser or use a live server like VS Code Live Server.
 
-🚀 Deployment Guide
+🌍 Deployment
 🔧 Backend (Render)
-Connect your GitHub repo to Render
+I deployed the backend to Render and set up the environment variables there.
 
-Add environment variables:
+Build command: npm install
 
-ini
-Copy
-Edit
-EXCHANGE_API_KEY=your_key
-NODE_ENV=production
-Set:
-
-Build Command: npm install
-
-Start Command: npm start
+Start command: npm start
 
 🎯 Frontend (Vercel)
-Update API_BASE_URL in script.js to point to your Render backend.
+I updated the API URL in script.js to point to my Render backend.
 
-Deploy with Vercel CLI:
+Then deployed the frontend to Vercel using the Vercel CLI.
 
-bash
-Copy
-Edit
-cd frontend
-vercel
 📦 Dependencies
 json
 Copy
@@ -150,5 +147,11 @@ Edit
 }
 📄 License
 MIT License
+<<<<<<< HEAD
 Built with ❤️ using ExchangeRate-API, Express.js, and pure JavaScript.
+=======
+
+Thanks for checking out my project! 😊
+If you have feedback or suggestions, feel free to reach out.
+>>>>>>> 93f619a (with the demos)
 
