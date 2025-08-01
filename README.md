@@ -1,8 +1,8 @@
-.
-
+HEAD
 💱 Currency Conversion
 Hi! I’m Gloria, and this is my full-stack currency converter app. It lets you convert between over 100 currencies in real time using the ExchangeRate-API. I built this project from scratch to learn and demonstrate how frontend and backend services can work together.
 
+HEAD
 🌐 Live Demo
 Here’s where you can check it out live:
 
@@ -16,7 +16,7 @@ Backend (Render):
 If you want to see how it works, here's a short demo video I made:
 https://youtu.be/nQT-U7X6cBQ
 
-
+HEAD
 📁 Project Structure
 Copy
 Edit
@@ -31,7 +31,8 @@ currency-converter/
 │   ├── script.js          # JS logic for currency conversion
 │   ├── style.css          # Styling and responsiveness
 │   └── vercel.json        # Vercel deployment config
-└── README.md              # Project documentation
+└── README.md              # Project documentatioN
+
 ✨ Features
 🌍 Real-time exchange rates
 
@@ -45,6 +46,7 @@ currency-converter/
 
 📡 Offline/online detection so users are aware of connectivity
 
+HEAD
 🧰 Tech Stack
 Backend
 Node.js + Express
@@ -76,6 +78,7 @@ Edit
   "to": "EUR"
 }
 🚀 How to Run It Locally
+HEAD
 🖥 Backend
 Clone the project and install dependencies:
 
